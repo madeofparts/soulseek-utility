@@ -5,9 +5,11 @@
 
 namespace fs = std::filesystem;
 
-// TODO: automatically insert / at start if missing
+// TODO: 
+// - automatically insert / at start if missing
+// - add confirm message
 std::string get_input_file_path(std::string purpose) {
-  fs::path my_path;
+  fs::path my_path; //
 
   while (!fs::exists(my_path)) {
     std::string input;
