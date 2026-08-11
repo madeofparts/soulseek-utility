@@ -1,13 +1,13 @@
 CXX = clang++
 CXXFLAGS = -Wall -Wextra -std=c++20
 
-EXES = build/test
+EXES = build/main
 
 all: $(EXES)
 
-build/test: src/test.cpp
+build/main: src/main.cpp
 	mkdir -p build
-	$(CXX) $(CXXFLAGS) src/test.cpp -o build/test
+	$(CXX) $(CXXFLAGS) src/main.cpp -o build/main
 
 .PHONY: all clean
 clean:
