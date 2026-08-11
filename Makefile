@@ -1,9 +1,14 @@
+CXX = g++
+CXXFLAGS = -Wall -Wextra -std=c++20
+
 EXES = build/test
 
 all: $(EXES)
-clean:
-	rm -f $(EXES)
 
 build/test: src/test.cpp
-	g++ src/test.cpp -o build/test
+	mkdir -p build
+	$(CXX) $(CXXFLAGS) src/test.cpp -o build/test
+
 .PHONY: all clean
+clean:
+	rm -f $(EXES)
