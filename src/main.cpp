@@ -1,4 +1,3 @@
-#include <cstdio>
 #include <iostream>
 #include <filesystem>
 #include <string>
@@ -14,17 +13,18 @@ std::string get_input_file_path(std::string purpose = "") {
     std::string msg;
 
     if (purpose == "") {
-      msg = "Select directory: ";
+      msg = "Select directory: \033[33m";
     } else {
-      msg = "Select {} directory: ";
+      msg = "Select {} directory: \033[33m";
     }
     std::cout << std::vformat(msg, std::make_format_args(purpose));
     std::getline(std::cin, input);
     my_path = input;
+    std::cout << "\033[0m";
 
     if (fs::exists(my_path)) {
-      std::cout << std::format("Path \'{}\' exists.", my_path.string()) << std::endl;
-      std::cout << std::format("Confirm path: \'{}\' (\033[32mY\033[0m/\033[31mn\033[0m): ", my_path.string());
+      std::cout << std::format("Path \033[33m\'{}\'\033[0m exists.", my_path.string()) << std::endl;
+      std::cout << std::format("Confirm path: \033[33m\'{}\'\033[0m (\033[32mY\033[0m/\033[31mn\033[0m): ", my_path.string());
       std::string ans;
       std::getline(std::cin, ans);
       
